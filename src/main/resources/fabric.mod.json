@@ -13,11 +13,9 @@
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/milcc/icon.png",
-	"environment": "*",
+	"environment": "server",
 	"entrypoints": {
-		"main": [
-			"hisui.milcc.Milcc"
-		]
+		"main": []
 	},
 	"mixins": [
 		"milcc.mixins.json"
@@ -25,10 +23,6 @@
 	"depends": {
 		"fabricloader": ">=0.14.24",
 		"minecraft": "~1.20",
-		"java": ">=17",
-		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
+		"java": ">=17"
 	}
 }
