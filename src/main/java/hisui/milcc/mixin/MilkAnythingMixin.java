@@ -7,7 +7,13 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsage;
 import net.minecraft.item.Items;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
+import net.minecraft.nbt.NbtList;
+import net.minecraft.nbt.NbtString;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Style;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
@@ -28,6 +34,8 @@ abstract class MilkAnythingMixin extends LivingEntity {
 		if (itemStack.isOf(Items.BUCKET) && !this.isBaby()) {
 			player.playSound(SoundEvents.ENTITY_COW_MILK, 1.0f, 1.0f);
 			ItemStack itemStack2 = ItemUsage.exchangeStack(itemStack, player, Items.MILK_BUCKET.getDefaultStack());
+			NbtList lore = itemStack2.getOrCreateSubNbt("display").getList("Lore", NbtElement.STRING_TYPE);
+			lore.add(NbtString.of(this.getName().getString()));
 			player.setStackInHand(hand, itemStack2);
 			cir.setReturnValue(ActionResult.success(this.getWorld().isClient));
 		}
