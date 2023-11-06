@@ -27,7 +27,7 @@ abstract class MilkAnythingMixin extends LivingEntity {
 		super(entityType, world);
 	}
 
-	@ModifyReturnValue(at = @At("HEAD"), method = "interactMob")
+	@ModifyReturnValue(at = @At("RETURN"), method = "interactMob")
 	private ActionResult milcc$milkAnythingMixin(ActionResult original, PlayerEntity player, Hand hand) {
 		if(original == ActionResult.PASS) {
 			ItemStack itemStack = player.getStackInHand(hand);
