@@ -37,7 +37,6 @@ abstract class MilkAnythingMixin extends LivingEntity {
 
 				NbtList lore = outputStack.getOrCreateSubNbt("display").getList("Lore", NbtElement.STRING_TYPE);
 				lore.add(NbtString.of(Text.Serializer.toJson(Text.empty().append(this.getName()).setStyle(Style.EMPTY.withColor(Formatting.GRAY)))));
-				lore.add(NbtString.of("Hello"));
 				outputStack.getOrCreateSubNbt("display").put("Lore", lore);
 
 				ItemStack itemStack2 = ItemUsage.exchangeStack(itemStack, player, outputStack);
